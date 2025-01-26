@@ -140,7 +140,10 @@ fn download_mod(
         .join("config")
         .join("CrewBoom");
     if config.crewboom_no_cypher {
-        crewboom_path = crewboom_path.join("no_cypher");
+        crewboom_path = std::path::Path::new(&bepinex_path)
+        .join("config")
+        .join("BombRushMP.Plugin")
+        .join("CrewBoom");
     }
     if !crewboom_path.exists() {
         std::fs::create_dir_all(&crewboom_path)?;
